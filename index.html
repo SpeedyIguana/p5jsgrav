@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Planetary Orbits</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.9.4/p5.js"></script>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header>
+        <h1>Planetary Orbits Simulation</h1>
+    </header>
+
+    <main>
+        <div id="simulation-container">
+            <div id="canvas-container">
+                </div>
+            <div id="info-display">
+                <p>Time: <span id="time-value">0.0</span> s</p>
+                <p>KE: <span id="ke-value">0.0</span> J | PE: <span id="pe-value">0.0</span> J | Total E: <span id="total-e-value">0.0</span> J</p>
+                <p>Bodies: <span id="body-count-value">0</span></p>
+            </div>
+        </div>
+
+        <div id="controls-container">
+            <h2>Controls</h2>
+
+             <div class="control-group button-group">
+                <button id="pause-button">Pause</button>
+                <button id="reset-button">Reset</button>
+                <button id="add-planet-button">Add Random Planet</button>
+                 <button id="remove-button" disabled>Remove Selected</button> </div>
+
+            <div class="control-group">
+                <label for="gravity-slider">Gravity (G): </label>
+                <input type="range" id="gravity-slider" min="0.1" max="100" value="5" step="0.1">
+                <span id="gravity-value">5.0</span>
+            </div>
+
+            <div class="control-group">
+                <label for="dt-slider">Time Step (dt): </label>
+                <input type="range" id="dt-slider" min="0.01" max="0.5" value="0.1" step="0.01">
+                <span id="dt-value">0.10</span>
+            </div>
+
+             <div class="control-group">
+                <label for="trail-slider">Trail Length: </label>
+                <input type="range" id="trail-slider" min="0" max="500" value="150" step="10">
+                <span id="trail-value">150</span>
+            </div>
+
+             <div class="control-group checkbox-group">
+                <input type="checkbox" id="trails-checkbox" checked>
+                <label for="trails-checkbox">Show Trails</label>
+             </div>
+             <div class="control-group checkbox-group">
+                 <input type="checkbox" id="vectors-vel-checkbox">
+                 <label for="vectors-vel-checkbox">Show Velocity Vectors</label>
+             </div>
+             <div class="control-group checkbox-group">
+                 <input type="checkbox" id="vectors-acc-checkbox">
+                 <label for="vectors-acc-checkbox">Show Accel. Vectors</label>
+             </div>
+              <div class="control-group checkbox-group">
+                 <input type="checkbox" id="com-checkbox">
+                 <label for="com-checkbox">Show Center of Mass</label>
+             </div>
+
+             <div id="selected-info">
+                 <h3>Selected Body</h3>
+                 <p>ID: <span id="selected-id">-</span></p>
+                 <p>Mass: <span id="selected-mass">-</span></p>
+                 <p>Pos: (<span id="selected-pos-x">-</span>, <span id="selected-pos-y">-</span>)</p>
+                 <p>Vel: (<span id="selected-vel-x">-</span>, <span id="selected-vel-y">-</span>)</p>
+             </div>
+
+        </div>
+    </main>
+
+    <script src="constants.js"></script>
+    <script src="Body.js"></script>
+    <script src="interaction.js"></script>
+    <script src="sketch.js"></script>
+</body>
+</html>
